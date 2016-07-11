@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import scipy.stats
 
 
 titanic_csv = pd.read_csv('titanic_data.csv')
@@ -42,13 +43,13 @@ for passenger_index, passenger in df_titanic.iterrows():
     else:
         age_not_registered[passenger_id] = 1
 
-
+print ""
 print "Survivors: ",  count_survivors
 print "Male count:   ", count_sex_male
 print "Female count: ", count_sex_female
 
 print "Total Passengers: ", len(df_titanic['Survived'])
-
+print""
 print "Males less than 18 who survived: ", len(predictions_male_under_18)
 print "Females less than 18 who survived: ", len(predictions_female_under_18)
 print "Males Not under 18 who survived: ", len(not_under_18_males_survived)
@@ -61,7 +62,7 @@ print "Total: ", len(not_survived) + len(not_under_18_females_survived) + \
                  len(not_under_18_males_survived) + len(predictions_male_under_18) + \
                  len(predictions_female_under_18) + len(age_not_registered)
 
-
+print ""
 passenger_class_1 = {}
 passenger_class_2 = {}
 passenger_class_3 = {}
@@ -83,7 +84,7 @@ print "Passengers 3rd class: ", len(passenger_class_3)
 
 print "Total: ", len(passenger_class_1) + len(passenger_class_2) + len(passenger_class_3)
 
-
+print ""
 """
     Passengers Per class who survived.
 """
@@ -120,7 +121,7 @@ survived_per_class = len(passenger_first_class_survivor) + \
                          len(passenger_second_class_survivor) + \
                          len(passenger_third_class_survivor)
 print "Total Survivors: ", survived_per_class
-
+print ""
 print "First Class Not Survivors:", len(passenger_first_class_not_survivor)
 print "Second Class Not Survivors: ", len(passenger_second_class_not_survivor)
 print "Third Class Not Survivors:", len(passenger_third_class_not_survivor)
@@ -131,8 +132,9 @@ not_survived_per_class = len(passenger_first_class_not_survivor) + \
 
 print "Total Not Survivors: ", not_survived_per_class
 print "Total: ", not_survived_per_class + survived_per_class
-
+print ""
 max_price = df_titanic['Fare'].max()
 print "Expensive ticket: ", max_price
 
 print df_titanic['Fare'].describe()
+print ""
