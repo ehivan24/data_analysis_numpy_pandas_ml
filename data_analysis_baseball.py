@@ -53,8 +53,7 @@ def shapiro_test():
     print w, p
 
     if p < 0.05:
-        print "Less than 0.5"
-
+        print "Less than 0.05"
 
     std = np.std(baseball_data['height'])
 
@@ -70,3 +69,4 @@ def shapiro_test():
 
 
 shapiro_test()
+
